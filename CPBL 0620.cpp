@@ -6,7 +6,7 @@ Author: ethanul
 #include <iostream>
 #include <cmath>
 #include <iomanip>
-#define NOM 20
+#define NOM 17
 
 using namespace std;
 
@@ -19,12 +19,12 @@ class team{
         double championship;
 };
 
-string matches_left[NOM] = {"CW", "FU", "TR", "CT", "WU", "FR", "CT", "WU", "FR", "TF"
+string matches_left[NOM] = {"CT", "WU", "FR", "CT", "WU", "FR", "TF"
 , "RU", "RC", "WF", "UC", "FR", "TR", "UF", "RT", "FT", "RF"};
 
 string names[6] = {"UL", "RM", "CB", "FG", "WD", "TH"};
-int wins[6] = {32, 27, 29, 24, 26, 22};
-int loses[6] = {22, 24, 26, 27, 30, 31};
+int wins[6] = {33, 28, 30, 24, 26, 22};
+int loses[6] = {22, 24, 26, 28, 31, 32};
 int powof2[NOM];
 
 
@@ -43,7 +43,7 @@ int main()
         teams[i].W_pro = teams[i].WP_pre = (double)teams[i].W_pre / (double)(teams[i].W_pre + teams[i].L_pre);
         teams[i].championship = 0;
 	}
-	unsigned int result = 0b00000000000000000000;
+	unsigned int result = 0b00000000000000000;
 
 	do{ // ¿éÄ¹²Õ¦X½aÁ|
         for (int i = 0; i < 6; i++){
@@ -102,13 +102,13 @@ int main()
         }
 
         result ++;
-	}while(result < 0b100000000000000000000);
+	}while(result < 0b100000000000000000);
     cout << result << endl;
     double sum = 0;
     for(int i = 0; i < 6; i++){
         sum += teams[i].championship;
         cout << teams[i].name << ' ' ;
-        printf("%.2f %.4f\n",teams[i].championship, teams[i].championship/(double)1048576);
+        printf("%.2f %.4f\n",teams[i].championship, teams[i].championship/(double)131072);
     }
     cout << sum;
 	//cout << teams[4].W << ' ' << teams[4].WP << ' ' << teams[4].name;
